@@ -1,0 +1,24 @@
+{
+  "name": "flash-tunnel-docs",
+  "private": true,
+  "type": "module",
+  "description": "The bilingual flash-tunnel documentation at https://flash-tunnel.imba97.dev",
+  "license": "MIT",
+  "packageManager": "pnpm@12.14.0",
+  "engines": { "node": ">=22.14.0" },
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "typecheck": "vue-tsc --noEmit",
+    "check": "node scripts/check-docs.mjs",
+    "check:build": "node scripts/check-docs.mjs --built"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "~6.0.3",
+    "vitepress": "1.6.4",
+    "vue": "^3.5.43",
+    "vue-tsc": "^3.3.12"
+  }
+}

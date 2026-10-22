@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://flash-tunnel.imba97.dev/sitemap.xml
