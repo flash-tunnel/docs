@@ -25,6 +25,8 @@ pnpm preview
 
 `pnpm check` checks locale parity and publishing files. VitePress checks Markdown links during the build. `pnpm check:build` verifies all generated local links, assets, anchors, canonical URLs, the CNAME file, and sitemap.
 
+Scripts under `scripts/` are written in TypeScript and executed with `esno`. They are included in `pnpm typecheck`.
+
 ## Content structure
 
 ```text

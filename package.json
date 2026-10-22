@@ -5,17 +5,20 @@
   "description": "The bilingual flash-tunnel documentation at https://flash-tunnel.imba97.dev",
   "license": "MIT",
   "packageManager": "pnpm@12.14.0",
-  "engines": { "node": ">=22.14.0" },
+  "engines": {
+    "node": ">=22.14.0"
+  },
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
     "typecheck": "vue-tsc --noEmit",
-    "check": "node scripts/check-docs.mjs",
-    "check:build": "node scripts/check-docs.mjs --built"
+    "check": "esno scripts/check-docs.ts",
+    "check:build": "esno scripts/check-docs.ts --built"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",
+    "esno": "^4.8.0",
     "typescript": "~6.0.3",
     "vitepress": "1.6.4",
     "vue": "^3.5.43",

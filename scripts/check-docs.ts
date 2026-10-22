@@ -7,7 +7,7 @@ const root = fileURLToPath(new URL('..', import.meta.url))
 const docs = join(root, 'docs')
 const dist = join(docs, '.vitepress/dist')
 
-function files(dir, suffix, prefix = '') {
+function files(dir: string, suffix: string, prefix = ''): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
     if (entry.name.startsWith('.')) return []
     const path = `${prefix}${entry.name}`
@@ -43,7 +43,7 @@ if (process.argv.includes('--built')) {
       if (/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(href)) continue
       const [pathname, hash] = href.split('#')
       const clean = decodeURIComponent(pathname.split('?')[0])
-      let target = clean.startsWith('/') ? join(dist, clean.slice(1)) : resolve(dirname(join(dist, page)), clean || page.split('/').at(-1))
+      let target = clean.startsWith('/') ? join(dist, clean.slice(1)) : resolve(dirname(join(dist, page)), clean || page.slice(page.lastIndexOf('/') + 1))
       if (clean.endsWith('/')) target = join(target, 'index.html')
       assert.ok(existsSync(target), `Broken generated link in ${page}: ${href}`)
       if (hash && target.endsWith('.html')) {
