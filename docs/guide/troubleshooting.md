@@ -31,14 +31,14 @@ Quick mode does not need a token. If you only need a temporary address, pass `--
 
 Run in the application directory, or select it with `--cwd apps/web`. Set an explicit `--command 'pnpm dev' --port 5173`, or use `--static dist` after building. A `preview` script without build output requires a build first.
 
-The planned 0.2.0 release reports `NO_RUNNABLE_SCRIPT` for a directory with no runnable server. If runnable apps are found under `apps/*` or `packages/*`, a non-interactive run reports `WORKSPACE_REQUIRED` with their paths. Choose one with `--cwd`; detection does not select an arbitrary app in CI.
+Starting with 0.2.0, `NO_RUNNABLE_SCRIPT` identifies a directory with no runnable server. If runnable apps are found under `apps/*` or `packages/*`, a non-interactive run reports `WORKSPACE_REQUIRED` with their paths. Choose one with `--cwd`; detection does not select an arbitrary app in CI.
 
 If a child app unexpectedly uses npm, check for a nearer lockfile or workspace boundary. The [package-manager inheritance rules](./local-servers#automatic-detection) use the nearest declaration and stop at the Git or workspace root.
 
 ## Port or hostname problems
 
 - `PORT_IN_USE` means a fixed port or the static server's port is occupied. Configure both the server and flash-tunnel to use another port, or intentionally reuse the service with `--reuse` / `--url <url> --attach`.
-- With the planned 0.2.0 behavior, an occupied framework or generic default is only an estimate: the command can start and report a different local URL. If it prints no URL, provide the actual port explicitly. See [port selection and conflicts](./local-servers#port-selection-and-conflicts).
+- Starting with 0.2.0, an occupied framework or generic default is only an estimate: the command can start and report a different local URL. If it prints no URL, provide the actual port explicitly. See [port selection and conflicts](./local-servers#port-selection-and-conflicts).
 - If the public page says **Blocked request / host is not allowed**, check the dev server's allowed-host configuration. flash-tunnel injects Vite's extra-host environment variable only into servers it starts.
 - If you attached an existing Vite server, restart it with the required hostname allowed. For quick mode, the necessary suffix is `.trycloudflare.com`.
 - If public readiness times out, confirm the local URL responds and inspect `--verbose` output for `cloudflared` errors.

@@ -11,7 +11,7 @@ Detection reads `package.json`, package-manager lockfiles, and build output.
 
 Package-manager discovery starts in the application's working directory and walks upward. In each directory it checks a supported `packageManager` declaration first, then pnpm, Yarn, Bun, and npm lockfiles. The nearest match wins: a child app's lockfile takes priority over a parent's declaration. If nothing matches, it falls back to npm.
 
-The search includes the Git or workspace root and stops there. Boundaries are a `.git` file or directory, `pnpm-workspace.yaml`, or a `package.json` with `workspaces`; without one, discovery stops at the filesystem root. Build and start use the same discovery rules. This inheritance behavior is part of the [planned 0.2.0 release](../releases/0.2.0).
+The search includes the Git or workspace root and stops there. Boundaries are a `.git` file or directory, `pnpm-workspace.yaml`, or a `package.json` with `workspaces`; without one, discovery stops at the filesystem root. Build and start use the same discovery rules. This inheritance behavior is available starting with [0.2.0](../releases/0.2.0).
 
 The startup preference is:
 
