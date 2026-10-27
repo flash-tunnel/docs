@@ -31,9 +31,14 @@ Quick 模式不需要 Token。如果只需要临时地址，请显式传入 `--m
 
 进入应用目录，或使用 `--cwd apps/web`。也可以指定 `--command 'pnpm dev' --port 5173`，或构建后使用 `--static dist`。只有 `preview` 脚本但没有产物时，需要先构建。
 
+待发布的 0.2.0 会用 `NO_RUNNABLE_SCRIPT` 表示当前目录没有可运行服务。如果在 `apps/*` 或 `packages/*` 中找到可运行应用，非交互环境会报告 `WORKSPACE_REQUIRED` 并给出路径。请用 `--cwd` 选择，CI 不会任意启动一个子应用。
+
+子应用意外使用 npm 时，检查是否存在更近的 lockfile 或 workspace 边界。[包管理器继承规则](./local-servers#自动探测)会就近匹配，并在 Git 或 workspace 根目录停止。
+
 ## 端口与主机名问题
 
-- 端口被占用时，使用 `--port <n>` 更换端口、通过 `--reuse` 复用，或用 `--url` 连接已有服务。
+- `PORT_IN_USE` 表示固定端口或静态服务端口被占用。请同时调整服务自身和 flash-tunnel 的端口，或用 `--reuse` / `--url <url> --attach` 主动连接已有服务。
+- 在 0.2.0 待发布行为中，框架或通用默认端口只是估计值，被占用时仍会启动命令，等待它报告其他本地 URL。如果命令不打印 URL，请显式指定实际端口，详见[端口选择与冲突](./local-servers#端口选择与冲突)。
 - 公网页面提示 **Blocked request / host is not allowed** 时，检查开发服务的 allowed-host 配置。flash-tunnel 只向自己启动的服务注入 Vite 额外主机名环境变量。
 - 连接已有 Vite 服务时，需要放行相应主机名后重启服务。Quick 模式所需后缀为 `.trycloudflare.com`。
 - 公网就绪检测超时，先确认本地 URL 可访问，再从 `--verbose` 输出中检查 `cloudflared` 错误。

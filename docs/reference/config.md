@@ -28,6 +28,8 @@ Supply a full hostname through `--hostname` or `FLASH_TUNNEL_HOSTNAME`. `domain.
 
 `command`, `url`, and `dir` describe different server modes; choose one. Relative paths resolve from the config directory. `--attach` requires a URL and cannot be combined with a command.
 
+Setting `server.port` makes the port explicit, so conflicts are checked before a command starts. It does not change the command's own arguments. When no port is configured, planned 0.2.0 can recover from an occupied default by reading the actual URL from server output; see [local servers](../guide/local-servers#port-selection-and-conflicts).
+
 ## Tunnel
 
 | Field | Type | Default |

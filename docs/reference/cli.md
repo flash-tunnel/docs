@@ -24,7 +24,7 @@ Use `--help` for command usage and `--version` for the installed version.
 | --- | --- |
 | `--cwd <dir>` | Project directory |
 | `--config <path>` | Explicit config file |
-| `--port <port>` | Preferred local port |
+| `--port <port>` | Explicit expected local port; does not add arguments to the server command |
 | `--command <command>` | Command to start the server |
 | `--url <url>` | Existing server URL |
 | `--attach` | Only attach; requires `--url` |
@@ -32,6 +32,8 @@ Use `--help` for command usage and `--version` for the installed version.
 | `--dev` | Force the dev script instead of preview |
 | `--build` | Run the build script first |
 | `--reuse` | Reuse a server already listening on the port |
+
+For command servers, planned 0.2.0 distinguishes fixed ports from framework/default estimates. A busy estimate can be replaced by the URL printed by the server; existing listeners are only reused with an explicit choice. See [port selection and conflicts](../guide/local-servers#port-selection-and-conflicts).
 
 ## Start: tunnel and domain
 

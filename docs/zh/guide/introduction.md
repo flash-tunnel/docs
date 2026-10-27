@@ -8,7 +8,7 @@ description: 了解 flash-tunnel 的用途、预览工作流程，以及 quick �
 你可以把开发中的页面发给同事评审，用手机打开电脑上的应用，或给客户一个演示地址，无需先部署构建产物。
 
 ::: info 早期预览
-flash-tunnel 目前处于 `0.0.x` 阶段，接口和行为可能调整。本文档以[项目仓库](https://github.com/flash-tunnel/flash-tunnel)中的实际实现为依据。
+flash-tunnel 目前处于 `0.x` 阶段，接口和行为可能调整。本文档以[项目仓库](https://github.com/flash-tunnel/flash-tunnel)中的实际实现为依据。相较 0.1.0 的改进见 [0.2.0 待发布说明](../releases/0.2.0)。
 :::
 
 ## 两种分享方式

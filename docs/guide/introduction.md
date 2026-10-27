@@ -8,7 +8,7 @@ description: What flash-tunnel does, how previews work, and when to use quick or
 Use it to review a work in progress with a teammate, open a local app on a phone, or give a client a link to a demo without deploying a build first.
 
 ::: info Early preview
-flash-tunnel is currently in the `0.0.x` stage. APIs and behavior may change. These docs describe the implementation in the [project repository](https://github.com/flash-tunnel/flash-tunnel).
+flash-tunnel is currently in the `0.x` stage. APIs and behavior may change. These docs describe the implementation in the [project repository](https://github.com/flash-tunnel/flash-tunnel). See the [planned 0.2.0 changes](../releases/0.2.0) for improvements since 0.1.0.
 :::
 
 ## Two ways to share

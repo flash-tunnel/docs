@@ -33,7 +33,7 @@ function sidebar(zh: boolean): DefaultTheme.SidebarItem[] {
     },
     {
       text: zh ? '更多' : 'Resources',
-      items: [item('Troubleshooting', '常见问题', '/guide/troubleshooting'), item('Contributing', '参与贡献', '/contributing')]
+      items: [item('Troubleshooting', '常见问题', '/guide/troubleshooting'), item('0.2.0 release notes', '0.2.0 更新说明', '/releases/0.2.0'), item('Contributing', '参与贡献', '/contributing')]
     }
   ]
 }
